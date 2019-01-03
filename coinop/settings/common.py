@@ -12,6 +12,7 @@ Basic settings common to all applications live here. For local:
 """
 import logging, os
 
+SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 LOGGING_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

@@ -17,4 +17,4 @@ class CoinSerializer(ma.ModelSchema):
         model = Coin
 
 
-coin_schema = CoinSerializer()
+coin_schema = CoinSerializer(strict=True)

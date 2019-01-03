@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 
 from coinop import views
@@ -21,6 +22,5 @@ def create_app(db, config_name):
 app = create_app(db, common)
 
 # Configure routes
-
 app.register_blueprint(auth.auth_bp)
 app.register_blueprint(coins.coin_bp)
