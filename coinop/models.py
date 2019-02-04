@@ -34,6 +34,14 @@ class Coin(ModelMixin, db.Model):
         return f"<Coin {self.name} | {self.low} - {self.high}>"
 
 
+class Exchange(ModelMixin, db.Model):
+    __tablename__ = 'exchanges'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    website = db.Column(db.String)
+
+
 def init_db(app):
     app.config['SQL_ALCHEMY_URI'] = 'postgresql://coinop'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -44,6 +52,8 @@ def init_db(app):
 
 if __name__ == '__main__':
     from coinop import app
+    # from flask import Flask
+    # app = Flask(__name__)
     init_db(app)
 
     db.create_all()

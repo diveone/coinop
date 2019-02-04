@@ -12,6 +12,11 @@ flask-debugtoolbar = "*"
 ipython = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+celery = "*"
+flask-redis = "*"
+requests = "*"
+rq = "*"
+flask-rq2 = "*"
 
 [requires]
 python_version = "3.7"

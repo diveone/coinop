@@ -12,7 +12,7 @@ Basic settings common to all applications live here. For local:
 """
 import logging, os
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', os.urandom(16))
 DEBUG = False
 
 LOGGING_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -29,6 +29,13 @@ SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(DB_USER, DB_PWD,
                                                                DB_HOST, DB_PORT,
                                                                DB_NAME)
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+RQ_REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+RQ_QUEUES = ['daily', 'high', 'low']
+BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
-COINAPI_KEY = os.getenv('COINOP_API_KEY')
-COINAPI_ENDPOINT = os.getenv('MORTECH_ENDPOINT')
+COINAPI_KEY = os.getenv('COINAPI_KEY')
+COINAPI_URL = os.getenv('COINAPI_URL')
+
+CELERY_BROKER_URL = os.getenv('REDIS_URL')
+CELERY_RESULT_BACKEND = os.getenv('REDIS_URL')
