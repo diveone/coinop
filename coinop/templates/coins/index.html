@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+    <script src="static/scripts/CoinView.jsx" type="text/jsx"></script>
+    <script src="static/scripts/Coin.jsx" type="text/jsx"></script>
+    <script src="static/scripts/Navigation.jsx" type="text/jsx"></script>
+
+    <script type="text/jsx">
+        ReactDOM.render(<CoinView />, document.querySelector('div#root'));
+    </script>
+
+{% endblock %}
